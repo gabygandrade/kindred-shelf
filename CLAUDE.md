@@ -29,16 +29,22 @@ docs/            PRD, technical design, design reference
 
 ## Commands
 
-Fill these in as the scripts are created in stage 1, and keep them accurate:
+Requires Node ≥ 22 and pnpm (version pinned in `packageManager` in the root `package.json`). Keep this list accurate as scripts change:
 
 ```
 pnpm install
-pnpm dev            # web app (MSW mocks on until stage 3)
-pnpm typecheck      # tsc --noEmit across all packages
-pnpm lint           # ESLint + Prettier check
-pnpm test           # Vitest across all packages
-pnpm test:e2e       # Playwright (stage 3)
+pnpm dev            # web app on http://localhost:5173 (MSW mocks on until stage 3)
+pnpm typecheck      # tsc --noEmit in every package
+pnpm lint           # ESLint (type-aware) + Prettier check
+pnpm format         # Prettier --write
+pnpm test           # Vitest in every package
+pnpm test:e2e       # Playwright (not set up yet: stage 3)
+
+pnpm --filter @kindred/web build   # production build of the web app
+pnpm --filter @kindred/shared test # one package only
 ```
+
+TypeScript stays on 6.0.x until typescript-eslint supports 7 (its peer range stops at < 6.1).
 
 A task is **done** only when `pnpm typecheck`, `pnpm lint` and `pnpm test` all pass. Never disable a lint rule, skip a test or add `@ts-ignore` to get there; fix the cause or ask.
 
