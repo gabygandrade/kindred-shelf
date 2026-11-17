@@ -4,6 +4,7 @@
  */
 import { authHandlers } from "./auth";
 import { bookHandlers } from "./books";
+import { importHandlers } from "./imports";
 import { shelfHandlers } from "./shelves";
 
-export const handlers = [...authHandlers, ...bookHandlers, ...shelfHandlers];
+export const handlers = [...authHandlers, ...bookHandlers, ...shelfHandlers, ...importHandlers];
