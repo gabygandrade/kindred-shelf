@@ -8,6 +8,7 @@ import { RequireSession } from "../features/auth/components/RequireSession";
 import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
 import { BookPage } from "../features/book/components/BookPage";
+import { ImportStartPage } from "../features/imports/components/ImportStartPage";
 import { SearchPage } from "../features/search/components/SearchPage";
 import { MyShelfPage } from "../features/shelf/components/MyShelfPage";
 
@@ -26,6 +27,7 @@ export const routes: RouteObject[] = [
           { index: true, element: <Navigate to="/shelf/read" replace /> },
           { path: "/shelf/:shelf", element: <MyShelfPage /> },
           { path: "/search", element: <SearchPage /> },
+          { path: "/welcome/import", element: <ImportStartPage /> },
           { path: "*", element: <Navigate to="/shelf/read" replace /> },
         ],
       },
