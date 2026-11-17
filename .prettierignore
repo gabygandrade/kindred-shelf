@@ -1,0 +1,7 @@
+# Docs are exported from the live PRD / design docs; keep their formatting as written.
+docs/
+pnpm-lock.yaml
+dist/
+coverage/
+# Verbatim copy of docs/design/tokens.css; keep the two identical.
+apps/web/src/styles/tokens.css
