@@ -1,0 +1,50 @@
+/* Styles for the sign-in and sign-up layout and their forms. */
+.page {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-16) var(--space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 420px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.intro {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.formError {
+  margin: 0;
+  color: var(--color-danger);
+}
+
+.footer {
+  margin: 0;
+  color: var(--color-text-muted);
+}
