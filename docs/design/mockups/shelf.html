@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred Shelf — Night reading room shelf (mockup)</title>
+<!-- Static design reference, not production code. Fonts from Google Fonts here only; the app self-hosts them. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#E8B04B}a:hover{color:#F3C873}
+</style>
+</head>
+<body>
+<div style="min-height: 880px; background: #14161F; color: #F3EEE4; font-family: Inter, system-ui, sans-serif; display: flex; flex-wrap: wrap">
+<aside style="flex: 1 1 220px; max-width: 260px; padding: 32px 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px; border-right: 1px solid #262A38">
+<a href="#" style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 22px; font-weight: 700; color: #F3EEE4; text-decoration: none">Kindred Shelf</a>
+<nav aria-label="Main" style="display: flex; flex-direction: column; gap: 4px">
+<a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; background: #262A38; color: #F3EEE4; text-decoration: none; font-weight: 600; font-size: 15px">Read</a>
+<a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; color: #A9A6B5; text-decoration: none; font-size: 15px">Reading</a>
+<a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; color: #A9A6B5; text-decoration: none; font-size: 15px">Want to read</a>
+<a href="#" style="display: flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 10px; color: #A9A6B5; text-decoration: none; font-size: 15px">Friends</a>
+</nav>
+<div style="padding: 16px; border-radius: 12px; border: 1px solid #262A38">
+<div style="font-size: 13px; color: #A9A6B5">Currently reading</div>
+<div style="margin-top: 6px; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; font-weight: 600">North and South</div>
+<div style="margin-top: 2px; font-size: 13px; color: #A9A6B5">Elizabeth Gaskell</div>
+</div>
+</aside>
+<main style="flex: 999 1 560px; min-width: 0; padding: 32px 48px 48px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 40px">
+<div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 44px; font-weight: 700; letter-spacing: -1px">Read</h1>
+<p style="margin: 6px 0 0; color: #A9A6B5; font-size: 15px">18 books on the shelf</p>
+</div>
+<button type="button" style="min-height: 44px; padding: 0 20px; border-radius: 10px; border: none; background: #E8B04B; color: #14161F; font: 600 15px Inter, system-ui, sans-serif; cursor: pointer">+ Add a book</button>
+</div>
+<div id="shelves"></div>
+<p style="margin: 8px 0 0; font-size: 13px; color: #A9A6B5">Book data from <a href="https://openlibrary.org">Open Library</a></p>
+</main>
+</div>
+<script>
+// Same spine rules as docs/design/README.md (the mockup hashes the title; the app hashes the Open Library key).
+const P = ['#C2553D', '#3E7C6B', '#4A63A8', '#D4A24C', '#7D4E8F', '#2F8F9D', '#B8475F', '#6E8B3D'];
+const books = [
+  { t: 'Pride and Prejudice', a: 'Jane Austen', p: 432 }, { t: 'Moby-Dick', a: 'Herman Melville', p: 635 },
+  { t: 'Jane Eyre', a: 'Charlotte Brontë', p: 532 }, { t: 'Frankenstein', a: 'Mary Shelley', p: 280 },
+  { t: 'The Great Gatsby', a: 'F. Scott Fitzgerald', p: 180 }, { t: 'Middlemarch', a: 'George Eliot', p: 880 },
+  { t: 'Little Women', a: 'Louisa May Alcott', p: 759 }, { t: 'Dracula', a: 'Bram Stoker', p: 418 },
+  { t: 'Wuthering Heights', a: 'Emily Brontë', p: 416 }, { t: 'Anna Karenina', a: 'Leo Tolstoy', p: 864 },
+  { t: 'The Odyssey', a: 'Homer', p: 541 }, { t: 'Emma', a: 'Jane Austen', p: 474 },
+  { t: 'Persuasion', a: 'Jane Austen', p: 249 }, { t: 'Great Expectations', a: 'Charles Dickens', p: 544 },
+  { t: 'The Age of Innocence', a: 'Edith Wharton', p: 365 }, { t: 'Mrs Dalloway', a: 'Virginia Woolf', p: 194 },
+  { t: 'The Secret Garden', a: 'Frances Hodgson Burnett', p: 331 }, { t: 'A Room with a View', a: 'E. M. Forster', p: 256 }
+];
+const hash = (s) => { let x = 7; for (const ch of s) x = (x * 31 + ch.charCodeAt(0)) >>> 0; return x; };
+const lum = (hex) => { const n = parseInt(hex.slice(1), 16); return (0.2126 * ((n >> 16) & 255) + 0.7152 * ((n >> 8) & 255) + 0.0722 * (n & 255)) / 255; };
+const root = document.getElementById('shelves');
+let prev = -1;
+for (let r = 0; r < 3; r++) {
+  const wrap = document.createElement('div'); wrap.style.marginBottom = '36px';
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex;flex-wrap:wrap;align-items:flex-end;gap:4px;padding:0 20px;min-height:250px';
+  for (const b of books.slice(r * 6, r * 6 + 6)) {
+    const h = hash(b.t);
+    let i = h % P.length; if (i === prev) i = (i + 3) % P.length; prev = i;
+    const c = P[i], ink = lum(c) > 0.5 ? '#14161F' : '#FFFFFF';
+    const w = Math.round(Math.max(30, Math.min(60, b.p / 13))), ht = 196 + (h % 6) * 9;
+    const a = document.createElement('a');
+    a.href = 'book.html'; a.setAttribute('aria-label', b.t + ' by ' + b.a);
+    a.style.cssText = `flex:none;width:${w}px;height:${ht}px;background:${c};border-radius:2px;box-sizing:border-box;padding:14px 0 12px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-decoration:none;box-shadow:inset -5px 0 0 rgba(0,0,0,0.22)`;
+    const t = document.createElement('span'); t.textContent = b.t;
+    t.style.cssText = `writing-mode:vertical-rl;font-family:'Space Grotesk',system-ui,sans-serif;font-size:14px;font-weight:600;color:${ink};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:${ht - 70}px`;
+    const au = document.createElement('span'); au.textContent = b.a.split(' ').slice(-1)[0];
+    au.style.cssText = `writing-mode:vertical-rl;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:${ink};white-space:nowrap`;
+    a.append(t, au); row.append(a);
+  }
+  const plank = document.createElement('div'); plank.setAttribute('aria-hidden', 'true');
+  plank.style.cssText = 'height:12px;background:#262A38;border-top:2px solid #3A3F52;border-radius:2px;box-shadow:0 16px 24px rgba(0,0,0,0.45)';
+  wrap.append(row, plank); root.append(wrap);
+}
+</script>
+</body>
+</html>

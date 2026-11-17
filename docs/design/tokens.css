@@ -1,0 +1,86 @@
+/*
+ * Kindred Shelf design tokens: "Night reading room".
+ * Copy to apps/web/src/styles/tokens.css and import once at the app root.
+ * Components use these variables only; add a token rather than hard-coding a value.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --color-bg: #14161f;            /* page background */
+  --color-surface: #1c1f2b;       /* panels, cards, segmented controls */
+  --color-surface-raised: #262a38; /* active nav item, shelf plank */
+  --color-border: #262a38;        /* hairlines, panel borders */
+  --color-border-strong: #3a3f52; /* shelf plank top edge */
+
+  /* Text */
+  --color-text: #f3eee4;          /* primary text (contrast on bg ≈ 15:1) */
+  --color-text-muted: #a9a6b5;    /* secondary text (contrast on bg ≈ 7.6:1) */
+  --color-text-on-accent: #14161f;
+
+  /* Accent (gold) */
+  --color-accent: #e8b04b;        /* buttons, stars, links, selected segment */
+  --color-accent-hover: #f3c873;
+
+  /* Spine palette (v1): picked by hashing the book's Open Library key.
+     Text on each spine is #ffffff or --color-bg, chosen by luminance (see README). */
+  --spine-1: #c2553d;
+  --spine-2: #3e7c6b;
+  --spine-3: #4a63a8;
+  --spine-4: #d4a24c;
+  --spine-5: #7d4e8f;
+  --spine-6: #2f8f9d;
+  --spine-7: #b8475f;
+  --spine-8: #6e8b3d;
+
+  /* Typography */
+  --font-display: "Space Grotesk", system-ui, sans-serif; /* headings, logo, spine titles */
+  --font-body: "Inter", system-ui, sans-serif;            /* everything else */
+
+  --text-xs: 10.5px;   /* spine author (uppercase, letter-spacing 1px) */
+  --text-sm: 13px;     /* labels, captions */
+  --text-md: 15px;     /* body, nav, buttons */
+  --text-lg: 18px;     /* book meta line */
+  --text-xl: 22px;     /* logo */
+  --text-2xl: 32px;    /* generated cover title */
+  --text-3xl: 44px;    /* shelf page title */
+  --text-4xl: 60px;    /* book title */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -1px;   /* shelf title */
+  --tracking-tighter: -1.5px; /* book title */
+  --tracking-caps: 1px;     /* uppercase labels */
+
+  /* Spacing (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii */
+  --radius-spine: 2px;
+  --radius-sm: 8px;    /* segmented-control items */
+  --radius-md: 10px;   /* buttons, nav items */
+  --radius-lg: 12px;   /* cards, segmented control */
+  --radius-xl: 20px;   /* cover panel */
+
+  /* Sizes */
+  --touch-target: 44px;
+  --sidebar-width: 260px;
+  --content-max: 1200px;
+
+  /* Shadows */
+  --shadow-plank: 0 16px 24px rgba(0, 0, 0, 0.45);
+  --shadow-cover: inset 8px 0 0 rgba(0, 0, 0, 0.22), 0 28px 48px rgba(0, 0, 0, 0.55);
+  --shadow-spine-edge: inset -5px 0 0 rgba(0, 0, 0, 0.22);
+}

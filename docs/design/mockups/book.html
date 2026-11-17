@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred Shelf — Night reading room book view (mockup)</title>
+<!-- Static design reference, not production code. The app loads the real Open Library cover; this shows the generated-cover fallback. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#E8B04B}a:hover{color:#F3C873}
+</style>
+</head>
+<body>
+<div style="min-height: 880px; background: #14161F; color: #F3EEE4; font-family: Inter, system-ui, sans-serif">
+<header style="max-width: 1200px; margin: 0 auto; padding: 28px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="shelf.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 600; text-decoration: none">← Back to Read</a>
+<span style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 18px; font-weight: 700; color: #A9A6B5">Kindred Shelf</span>
+</header>
+<main style="max-width: 1200px; margin: 0 auto; padding: 8px 40px 48px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div style="flex: 0 1 340px; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 32px; border-radius: 20px; background: #1C1F2B; border: 1px solid #262A38; box-sizing: border-box">
+<div role="img" aria-label="Cover of Jane Eyre" style="width: 100%; max-width: 260px; aspect-ratio: 2 / 3; background: #7D4E8F; border-radius: 3px 8px 8px 3px; box-sizing: border-box; padding: 32px 26px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: inset 8px 0 0 rgba(0,0,0,0.22), 0 28px 48px rgba(0,0,0,0.55)">
+<div style="font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.05; color: #FFFFFF">Jane Eyre</div>
+<div style="font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: #FFFFFF">Charlotte Brontë</div>
+</div>
+<a href="https://openlibrary.org" style="font-size: 14px">View on Open Library ↗</a>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
+<div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 60px; font-weight: 700; letter-spacing: -1.5px; line-height: 1">Jane Eyre</h1>
+<p style="margin: 14px 0 0; font-size: 18px; color: #A9A6B5">Charlotte Brontë · 1847 · 532 pages</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+<div role="group" aria-label="Your rating" style="display: flex; gap: 2px">
+<button type="button" aria-label="1 star" style="width: 44px; height: 44px; border: none; background: none; font-size: 28px; color: #E8B04B; cursor: pointer">★</button>
+<button type="button" aria-label="2 stars" style="width: 44px; height: 44px; border: none; background: none; font-size: 28px; color: #E8B04B; cursor: pointer">★</button>
+<button type="button" aria-label="3 stars" style="width: 44px; height: 44px; border: none; background: none; font-size: 28px; color: #E8B04B; cursor: pointer">★</button>
+<button type="button" aria-label="4 stars" style="width: 44px; height: 44px; border: none; background: none; font-size: 28px; color: #E8B04B; cursor: pointer">★</button>
+<button type="button" aria-label="5 stars" style="width: 44px; height: 44px; border: none; background: none; font-size: 28px; color: #E8B04B; cursor: pointer">★</button>
+</div>
+<span style="font-size: 15px; color: #A9A6B5">Read in 17 days · Mar 2 – Mar 19, 2026</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #A9A6B5">Shelf</span>
+<div role="group" aria-label="Shelf" style="display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 12px; background: #1C1F2B; border: 1px solid #262A38; align-self: flex-start">
+<button type="button" style="min-height: 40px; padding: 0 16px; border: none; border-radius: 8px; background: transparent; color: #A9A6B5; font: 500 14px Inter, system-ui, sans-serif">Reading</button>
+<button type="button" style="min-height: 40px; padding: 0 16px; border: none; border-radius: 8px; background: #E8B04B; color: #14161F; font: 600 14px Inter, system-ui, sans-serif">Read</button>
+<button type="button" style="min-height: 40px; padding: 0 16px; border: none; border-radius: 8px; background: transparent; color: #A9A6B5; font: 500 14px Inter, system-ui, sans-serif">Want to read</button>
+</div>
+</div>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 15px; cursor: pointer">
+<input type="checkbox" style="width: 20px; height: 20px; accent-color: #E8B04B">
+Keep this book private
+</label>
+</div>
+</main>
+</div>
+</body>
+</html>
