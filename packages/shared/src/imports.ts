@@ -1,3 +1,8 @@
+/**
+ * API contract for the Goodreads import: what the web app and the API send each
+ * other to upload a CSV, follow the import job, and fix rows that didn't match a
+ * book. The web app, the mock API and the real API all import these schemas.
+ */
 import { z } from "zod";
 import { isoDateTimeSchema, olKeySchema, shelfSchema } from "./common";
 
@@ -9,14 +14,21 @@ export type ImportJobStatus = z.infer<typeof importJobStatusSchema>;
 export const importRowStatusSchema = z.enum(["pending", "matched", "unmatched", "fixed"]);
 export type ImportRowStatus = z.infer<typeof importRowStatusSchema>;
 
-// POST /imports  (multipart/form-data with one `file` field)
+// POST /imports  (body: the Goodreads CSV itself, Content-Type: text/csv)
+//
+// A raw text body rather than multipart/form-data: there's only one file and
+// no other fields, so the server can read it with one call and check its size,
+// with no multipart parsing.
 
-export const createImportBodySchema = z.object({
-  file: z
-    .instanceof(File)
-    .refine((file) => file.size > 0, "The file is empty")
-    .refine((file) => file.size <= MAX_IMPORT_BYTES, "The file is larger than 5 MB"),
-});
+export const IMPORT_CONTENT_TYPE = "text/csv";
+
+export const createImportBodySchema = z
+  .string()
+  .refine((csv) => csv.trim().length > 0, "The file is empty")
+  .refine(
+    (csv) => new TextEncoder().encode(csv).byteLength <= MAX_IMPORT_BYTES,
+    "The file is larger than 5 MB",
+  );
 export type CreateImportBody = z.infer<typeof createImportBodySchema>;
 
 export const createImportResponseSchema = z.object({

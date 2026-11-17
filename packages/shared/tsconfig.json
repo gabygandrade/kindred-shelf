@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  // DOM for `File` (multipart uploads); node for tests that read docs/.
-  "compilerOptions": { "lib": ["ES2023", "DOM"], "types": ["node"] },
+  // node for tests that read docs/ (and TextEncoder).
+  "compilerOptions": { "lib": ["ES2023"], "types": ["node"] },
   "include": ["src"]
 }
