@@ -7,6 +7,7 @@ import { AppShell } from "../components/AppShell";
 import { RequireSession } from "../features/auth/components/RequireSession";
 import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
+import { SearchPage } from "../features/search/components/SearchPage";
 import { MyShelfPage } from "../features/shelf/components/MyShelfPage";
 
 /** Every screen. Tests render these same routes in a memory router. */
@@ -22,6 +23,7 @@ export const routes: RouteObject[] = [
         children: [
           { index: true, element: <Navigate to="/shelf/read" replace /> },
           { path: "/shelf/:shelf", element: <MyShelfPage /> },
+          { path: "/search", element: <SearchPage /> },
           { path: "*", element: <Navigate to="/shelf/read" replace /> },
         ],
       },
