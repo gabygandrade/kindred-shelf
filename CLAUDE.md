@@ -55,6 +55,7 @@ A task is **done** only when `pnpm typecheck`, `pnpm lint` and `pnpm test` all p
 - `strict: true` plus `noUncheckedIndexedAccess`. No `any`; use `unknown` and narrow. No non-null assertions (`!`) outside tests.
 - Types for API data come from `packages/shared` via `z.infer`. Never redeclare an API type by hand in an app.
 - Named exports only. Small, single-purpose modules; split a file when it passes ~200 lines.
+- Every source file (`.ts`, `.tsx`, `.css`) starts with a short comment, one to three lines, saying what the file is for. Test files and config files (`.json`, `*.config.ts`) don't need one. When you touch a file that has none, add it.
 - Names say what things are (`useFriendShelf`, `normalizeTitle`), not how they work.
 
 ### The contract (`packages/shared`)
