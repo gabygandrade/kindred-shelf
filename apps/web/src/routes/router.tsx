@@ -4,6 +4,7 @@
  */
 import { createBrowserRouter, Navigate, type RouteObject } from "react-router";
 import { AppShell } from "../components/AppShell";
+import { SettingsPage } from "../features/account/components/SettingsPage";
 import { RequireSession } from "../features/auth/components/RequireSession";
 import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
@@ -38,6 +39,7 @@ export const routes: RouteObject[] = [
           { path: "/friends", element: <FriendsPage /> },
           { path: "/friends/:username", element: <FriendShelfPage /> },
           { path: "/invite/:token", element: <InvitePage /> },
+          { path: "/settings", element: <SettingsPage /> },
           { path: "*", element: <Navigate to="/shelf/read" replace /> },
         ],
       },
