@@ -1,8 +1,10 @@
 /** The Friends page: requests, the friend list, adding a friend and sharing an invite link. */
 import { PageHeader } from "../../../components/PageHeader";
+import { AddFriendForm } from "./AddFriendForm";
 import { FriendList } from "./FriendList";
 import { FriendRequestsSection } from "./FriendRequestsSection";
 import styles from "./Friends.module.css";
+import { InviteLinkCard } from "./InviteLinkCard";
 
 export function FriendsPage() {
   return (
@@ -13,6 +15,8 @@ export function FriendsPage() {
       />
       <FriendRequestsSection />
       <FriendList />
+      <AddFriendForm />
+      <InviteLinkCard />
     </div>
   );
 }
