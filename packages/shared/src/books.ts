@@ -1,3 +1,4 @@
+/** API contract for books: the shared catalog entry for a book (a work) and Open Library search. */
 import { z } from "zod";
 import { olKeySchema } from "./common";
 

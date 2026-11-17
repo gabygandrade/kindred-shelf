@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 /**
  * Every error the API returns has this shape: `{ error: { code, message } }`.
  *
@@ -7,6 +5,8 @@ import { z } from "zod";
  * a non-friend's shelf and someone else's import job all return the same 404 body,
  * so a response never reveals whether something exists.
  */
+import { z } from "zod";
+
 export const errorCodeSchema = z.enum([
   "validation_error", // 400
   "unauthorized", // 401: no session

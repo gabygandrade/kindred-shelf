@@ -1,3 +1,4 @@
+/** API contract for account data: exporting my books as a CSV and deleting my account. */
 import { z } from "zod";
 
 // GET /me/export: the caller's books as a CSV download (text/csv), not JSON.

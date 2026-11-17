@@ -1,11 +1,12 @@
-import { z } from "zod";
-import { displayNameSchema, isoDateTimeSchema, userIdSchema, usernameSchema } from "./common";
-
-/*
+/**
+ * API contract for accounts and sessions: sign-up, sign-in and the signed-in member.
+ *
  * `/auth/*` is Better Auth's own handler, so its wire format belongs to Better Auth.
  * These schemas cover what the app adds or reads: the sign-up form (with our
  * username and invite code fields) and the signed-in member the app works with.
  */
+import { z } from "zod";
+import { displayNameSchema, isoDateTimeSchema, userIdSchema, usernameSchema } from "./common";
 
 export const emailSchema = z.email().trim().toLowerCase();
 

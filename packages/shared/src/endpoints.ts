@@ -1,3 +1,11 @@
+/**
+ * Every endpoint in the technical design's API table, keyed by "METHOD /path".
+ * Route handlers, MSW mocks and fetchers all look schemas up here, so the
+ * mocks and the real API can't drift apart.
+ *
+ * Every route except /auth/* needs a session, and the acting user always
+ * comes from that session, so no schema here carries a "current user" field.
+ */
 import type { z } from "zod";
 import { accountExportResponseSchema } from "./account";
 import {
@@ -45,14 +53,6 @@ interface EndpointContract {
   response: z.ZodType;
 }
 
-/**
- * Every endpoint in the technical design's API table, keyed by "METHOD /path".
- * Route handlers, MSW mocks and fetchers all look schemas up here, so the
- * mocks and the real API can't drift apart.
- *
- * Every route except /auth/* needs a session, and the acting user always
- * comes from that session, so no schema here carries a "current user" field.
- */
 export const endpoints = {
   // Auth (Better Auth owns /auth/*; listed for the fields the app adds)
   "POST /auth/sign-up/email": { body: signUpBodySchema, response: sessionResponseSchema },

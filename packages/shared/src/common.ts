@@ -1,3 +1,7 @@
+/**
+ * Small schemas the rest of the contract builds on: Open Library keys, user ids,
+ * usernames, display names, dates and the three shelves.
+ */
 import { z } from "zod";
 
 /** Open Library work key, e.g. "OL45804W". We track works, never editions. */

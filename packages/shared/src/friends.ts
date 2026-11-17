@@ -1,3 +1,4 @@
+/** API contract for friends: the friend list, friend requests and invite links. */
 import { z } from "zod";
 import {
   isoDateTimeSchema,
