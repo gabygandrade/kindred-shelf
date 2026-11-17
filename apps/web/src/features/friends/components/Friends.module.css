@@ -1,0 +1,83 @@
+/* Styles shared by the Friends, Invite and Settings pages: sections, lists and forms. */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  max-width: 760px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.name {
+  font-weight: var(--weight-semibold);
+}
+
+.nameLink {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+.muted {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.field {
+  flex: 1 1 240px;
+}
+
+.error {
+  margin: 0;
+  color: var(--color-danger);
+}
+
+.success {
+  margin: 0;
+  color: var(--color-text);
+}
