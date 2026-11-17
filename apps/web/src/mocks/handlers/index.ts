@@ -4,7 +4,14 @@
  */
 import { authHandlers } from "./auth";
 import { bookHandlers } from "./books";
+import { friendHandlers } from "./friends";
 import { importHandlers } from "./imports";
 import { shelfHandlers } from "./shelves";
 
-export const handlers = [...authHandlers, ...bookHandlers, ...shelfHandlers, ...importHandlers];
+export const handlers = [
+  ...authHandlers,
+  ...bookHandlers,
+  ...shelfHandlers,
+  ...importHandlers,
+  ...friendHandlers,
+];
