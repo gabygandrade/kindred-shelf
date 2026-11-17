@@ -8,6 +8,8 @@ import { RequireSession } from "../features/auth/components/RequireSession";
 import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
 import { BookPage } from "../features/book/components/BookPage";
+import { FriendBookPage } from "../features/book/components/FriendBookPage";
+import { FriendShelfPage } from "../features/friends/components/FriendShelfPage";
 import { FriendsPage } from "../features/friends/components/FriendsPage";
 import { InvitePage } from "../features/friends/components/InvitePage";
 import { ImportProgressPage } from "../features/imports/components/ImportProgressPage";
@@ -24,6 +26,7 @@ export const routes: RouteObject[] = [
     children: [
       // The open-book view has its own top bar instead of the sidebar.
       { path: "/books/:olKey", element: <BookPage /> },
+      { path: "/friends/:username/books/:olKey", element: <FriendBookPage /> },
       {
         element: <AppShell />,
         children: [
@@ -33,6 +36,7 @@ export const routes: RouteObject[] = [
           { path: "/welcome/import", element: <ImportStartPage /> },
           { path: "/imports/:id", element: <ImportProgressPage /> },
           { path: "/friends", element: <FriendsPage /> },
+          { path: "/friends/:username", element: <FriendShelfPage /> },
           { path: "/invite/:token", element: <InvitePage /> },
           { path: "*", element: <Navigate to="/shelf/read" replace /> },
         ],
