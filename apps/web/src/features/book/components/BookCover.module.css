@@ -1,0 +1,50 @@
+/* Styles for real and generated book covers. */
+.cover {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 2 / 3;
+  border-radius: 3px var(--radius-sm) var(--radius-sm) 3px;
+  box-shadow: var(--shadow-cover);
+  object-fit: cover;
+}
+
+.generated {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-8) 26px;
+  overflow: hidden;
+}
+
+.generatedTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.generatedAuthor {
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.small {
+  max-width: 56px;
+  border-radius: 2px;
+  box-shadow: var(--shadow-spine-edge);
+}
+
+.small.generated {
+  padding: var(--space-1);
+}
+
+.small .generatedTitle {
+  font-size: var(--text-xs);
+  line-height: 1.1;
+}
+
+.small .generatedAuthor {
+  display: none;
+}
