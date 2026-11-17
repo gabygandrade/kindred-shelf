@@ -44,6 +44,8 @@ pnpm --filter @kindred/web build   # production build of the web app
 pnpm --filter @kindred/shared test # one package only
 ```
 
+With the mocks on, sign in as `reader.a@example.com` / `password123` (fixtures in `apps/web/src/mocks/fixtures/`). Sign-up invite code: `WELCOME-2026`. Searching for `offline` shows the "Open Library is down" state.
+
 TypeScript stays on 6.0.x until typescript-eslint supports 7 (its peer range stops at < 6.1).
 
 A task is **done** only when `pnpm typecheck`, `pnpm lint` and `pnpm test` all pass. Never disable a lint rule, skip a test or add `@ts-ignore` to get there; fix the cause or ask.
