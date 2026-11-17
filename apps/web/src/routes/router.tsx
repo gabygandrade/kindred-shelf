@@ -9,6 +9,7 @@ import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
 import { BookPage } from "../features/book/components/BookPage";
 import { FriendsPage } from "../features/friends/components/FriendsPage";
+import { InvitePage } from "../features/friends/components/InvitePage";
 import { ImportProgressPage } from "../features/imports/components/ImportProgressPage";
 import { ImportStartPage } from "../features/imports/components/ImportStartPage";
 import { SearchPage } from "../features/search/components/SearchPage";
@@ -32,6 +33,7 @@ export const routes: RouteObject[] = [
           { path: "/welcome/import", element: <ImportStartPage /> },
           { path: "/imports/:id", element: <ImportProgressPage /> },
           { path: "/friends", element: <FriendsPage /> },
+          { path: "/invite/:token", element: <InvitePage /> },
           { path: "*", element: <Navigate to="/shelf/read" replace /> },
         ],
       },
