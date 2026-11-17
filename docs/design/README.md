@@ -42,7 +42,9 @@ function hash(s: string): number {        // same hash the mockups use
 //   color  = PALETTE[h % 8]; if it equals the previous spine's color, use (index + 3) % 8 instead
 //   width  = clamp(30, round(pageCount / 13), 60) px; 40px when pageCount is unknown
 //   height = 196 + (h % 6) * 9 px              // slight variation so the shelf isn't a grid
-//   ink    = relative luminance(color) > 0.5 ? var(--color-bg) : #ffffff
+//   ink    = whichever of --color-ink-light (#ffffff) and --color-bg has the higher
+//            WCAG contrast with the color. (A "luminance > 0.5" cutoff put white text
+//            on --spine-6 and --spine-8 at under 4.5:1; this rule keeps all eight ≥ 4.5:1.)
 ```
 
 Keep this in one tested pure function (`spineStyle(work, previousColor)`), so the same book always looks the same everywhere.

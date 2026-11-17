@@ -22,6 +22,12 @@
   --color-accent: #e8b04b;        /* buttons, stars, links, selected segment */
   --color-accent-hover: #f3c873;
 
+  /* Feedback */
+  --color-danger: #f08a7e;        /* error text and destructive actions (contrast on bg ≈ 7.6:1) */
+
+  /* Ink on spines and generated covers (the other ink is --color-bg) */
+  --color-ink-light: #ffffff;
+
   /* Spine palette (v1): picked by hashing the book's Open Library key.
      Text on each spine is #ffffff or --color-bg, chosen by luminance (see README). */
   --spine-1: #c2553d;
@@ -39,6 +45,7 @@
 
   --text-xs: 10.5px;   /* spine author (uppercase, letter-spacing 1px) */
   --text-sm: 13px;     /* labels, captions */
+  --text-spine: 14px;  /* spine titles (semibold, display font) */
   --text-md: 15px;     /* body, nav, buttons */
   --text-lg: 18px;     /* book meta line */
   --text-xl: 22px;     /* logo */
