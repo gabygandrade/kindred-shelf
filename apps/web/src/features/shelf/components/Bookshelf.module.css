@@ -1,0 +1,38 @@
+/*
+ * One flex container that wraps into rows. Every slot is the same height, so
+ * rows line up with a repeating background that draws a plank under each one
+ * (2px top edge, then the plank), however many rows the width allows.
+ */
+.shelf {
+  --row: 250px;
+  --plank: 12px;
+  --gap: 48px;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-1);
+  row-gap: var(--gap);
+  margin: 0;
+  padding: 0 var(--space-5) var(--gap);
+  list-style: none;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0 var(--row),
+    var(--color-border-strong) var(--row) calc(var(--row) + 2px),
+    var(--color-surface-raised) calc(var(--row) + 2px) calc(var(--row) + var(--plank)),
+    transparent calc(var(--row) + var(--plank))
+  );
+  background-size: 100% calc(var(--row) + var(--gap));
+}
+
+.slot {
+  display: flex;
+  align-items: flex-end;
+  height: var(--row);
+}
+
+@media (max-width: 640px) {
+  .shelf {
+    padding-inline: var(--space-2);
+  }
+}
