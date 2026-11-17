@@ -1,3 +1,4 @@
+/** API contract for shelves: my books, adding or changing one, and other members' shelves. */
 import { z } from "zod";
 import { workSchema } from "./books";
 import {
