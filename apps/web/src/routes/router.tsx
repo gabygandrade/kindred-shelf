@@ -7,6 +7,7 @@ import { AppShell } from "../components/AppShell";
 import { RequireSession } from "../features/auth/components/RequireSession";
 import { SignInPage } from "../features/auth/components/SignInPage";
 import { SignUpPage } from "../features/auth/components/SignUpPage";
+import { BookPage } from "../features/book/components/BookPage";
 import { SearchPage } from "../features/search/components/SearchPage";
 import { MyShelfPage } from "../features/shelf/components/MyShelfPage";
 
@@ -18,6 +19,7 @@ export const routes: RouteObject[] = [
     element: <RequireSession />,
     children: [
       // The open-book view has its own top bar instead of the sidebar.
+      { path: "/books/:olKey", element: <BookPage /> },
       {
         element: <AppShell />,
         children: [
